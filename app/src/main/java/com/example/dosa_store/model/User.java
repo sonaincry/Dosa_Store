@@ -37,6 +37,12 @@ public class User {
         this.image = image;
     }
 
+    public User(String uesrname, String password, String displayName) {
+        this.uesrname = uesrname;
+        this.password = password;
+        this.displayName = displayName;
+    }
+
     public int getId() {
         return id;
     }

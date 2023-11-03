@@ -16,12 +16,12 @@ public interface UserService {
     String USERS = "User";
     @GET(USERS)
     Call<User[]> getAllUsers();
-    @GET(USERS + "(/id)")
-    Call<User> getAllUsers(@Path("id") Object id);
+    @GET(USERS + "/{id}")
+    Call<User> getAllUsers(@Path("id") int userId);
     @POST(USERS)
     Call<User> createUser(@Body User user);
-    @PUT(USERS + "(/id)")
-    Call<User> updateUser(@Path("id") Object id, @Body User user);
-    @DELETE(USERS + "(/id)")
-    Call<User> deleteUser(@Path("id") Object id);
+    @PUT(USERS + "/{id}")
+    Call<User> updateUser(@Path("id") int userId, @Body User user);
+    @DELETE(USERS + "/{id}")
+    Call<User> deleteUser(@Path("id") int userId);
 }
