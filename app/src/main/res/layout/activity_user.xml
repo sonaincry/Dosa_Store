@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvUser"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="589dp" />
+
+    <ImageView
+        android:id="@+id/ivAddUser"
+        android:layout_width="71dp"
+        android:layout_height="61dp"
+
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add" />
 </RelativeLayout>
