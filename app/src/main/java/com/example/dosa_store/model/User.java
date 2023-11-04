@@ -2,7 +2,7 @@ package com.example.dosa_store.model;
 
 public class User {
     private int id;
-    private String uesrname;
+    private String username;
     private String password;
     private String displayName;
     private String address;
@@ -14,8 +14,8 @@ public class User {
     public User() {
     }
 
-    public User(String uesrname, String password, String displayName, String address, String email, String phone, String userImg, String image) {
-        this.uesrname = uesrname;
+    public User(String username, String password, String displayName, String address, String email, String phone, String userImg, String image) {
+        this.username = username;
         this.password = password;
         this.displayName = displayName;
         this.address = address;
@@ -25,9 +25,9 @@ public class User {
         this.image = image;
     }
 
-    public User(int id, String uesrname, String password, String displayName, String address, String email, String phone, String userImg, String image) {
+    public User(int id, String username, String password, String displayName, String address, String email, String phone, String userImg, String image) {
         this.id = id;
-        this.uesrname = uesrname;
+        this.username = username;
         this.password = password;
         this.displayName = displayName;
         this.address = address;
@@ -37,10 +37,19 @@ public class User {
         this.image = image;
     }
 
-    public User(String uesrname, String password, String displayName) {
-        this.uesrname = uesrname;
+    public User(String username, String password, String displayName) {
+        this.username = username;
         this.password = password;
         this.displayName = displayName;
+    }
+
+    public User(String username, String password, String displayName, String address, String phone, String email) {
+        this.username = username;
+        this.password = password;
+        this.displayName = displayName;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
     }
 
     public int getId() {
@@ -51,12 +60,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUesrname() {
-        return uesrname;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUesrname(String uesrname) {
-        this.uesrname = uesrname;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
