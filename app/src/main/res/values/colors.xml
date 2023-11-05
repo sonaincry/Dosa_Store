@@ -12,5 +12,10 @@
 
     <!--colros for card-->
     <color name="whiteCardColor">#fff</color>
+    <color name="textColorPrimary">#212121</color>
+    <color name="white">#ffffff</color>
+    <color name="colorPrimaryProduct">#f17015</color>
+    <color name="textColorSecondary">#757575</color>
+
 
 </resources>

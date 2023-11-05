@@ -20,22 +20,30 @@
 
     <Button
         android:id="@+id/btnOrder"
-        android:layout_width="126dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="154dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rectangle_button"
         android:text="Order"
+        android:textColorHighlight="#3F51B5"
+        android:textColorLink="#B89D9D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.975"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:rippleColor="#AF9595" />
 
     <EditText
         android:id="@+id/editTextNote"
-        android:layout_width="143dp"
-        android:layout_height="77dp"
+        android:layout_width="151dp"
+        android:layout_height="48dp"
+        android:background="@drawable/edit_text_background"
         android:ems="10"
+        android:gravity="center_vertical"
+        android:hint="Note"
         android:inputType="text"
-        android:text="Note"
+        android:paddingStart="8dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

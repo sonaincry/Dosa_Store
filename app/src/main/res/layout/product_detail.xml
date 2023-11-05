@@ -8,43 +8,44 @@
 
     <Button
         android:id="@+id/btnAdd"
-        android:layout_width="126dp"
-        android:layout_height="63dp"
+        android:layout_width="122dp"
+        android:layout_height="38dp"
+        android:background="@drawable/rectangle_button"
         android:text="Add to cart"
         android:textColorHighlight="#3F51B5"
         android:textColorLink="#B89D9D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.185"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.747"
+        app:layout_constraintVertical_bias="0.962"
         app:rippleColor="#AF9595" />
 
     <Button
         android:id="@+id/btnGo"
-        android:layout_width="110dp"
-        android:layout_height="63dp"
-        android:text="Go to cart"
+        android:layout_width="78dp"
+        android:layout_height="58dp"
+        android:background="@drawable/cart"
         android:textColorHighlight="#3F51B5"
         android:textColorLink="#B89D9D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.804"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.976"
         app:rippleColor="#AF9595" />
 
     <ImageView
         android:id="@+id/item_detail_image"
-        android:layout_width="100dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="63dp"
-        android:layout_marginBottom="41dp"
+        android:layout_width="386dp"
+        android:layout_height="246dp"
+        android:layout_marginBottom="20dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/item_detail_title"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,13 +53,14 @@
         android:id="@+id/item_detail_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="51dp"
+        android:layout_marginBottom="20dp"
         android:text="Item Title"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/item_detail_description"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_detail_image" />
 
@@ -66,25 +68,31 @@
         android:id="@+id/item_detail_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="58dp"
+        android:layout_marginBottom="30dp"
         android:text="Item Description"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/item_detail_price"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_detail_title" />
+        app:layout_constraintTop_toBottomOf="@+id/item_detail_title"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/holo_blue_light" />
 
-  <TextView
-    android:id="@+id/item_detail_price"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:text="Item Price"
-    android:textSize="14sp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/item_detail_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="150dp"
+        android:text="Item Price"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_detail_description"
+        android:textColor="@android:color/holo_orange_light"/>
 
   <TextView
         android:id="@+id/item_detail_id"
@@ -96,15 +104,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-  <EditText
-    android:id="@+id/quantity_input"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="156dp"
-    android:layout_marginTop="416dp"
-    android:hint="Quantity"
-    android:inputType="number"
-    android:text="1"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    <EditText
+        android:id="@+id/quantity_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="264dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/edit_text_background"
+        android:gravity="center_vertical"
+        android:hint="Quantity"
+        android:inputType="number"
+        android:paddingStart="8dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp"
+        android:text="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_detail_price" />
 </androidx.constraintlayout.widget.ConstraintLayout>
