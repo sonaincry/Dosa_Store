@@ -20,7 +20,7 @@
             android:name=".UpdateUser"
             android:exported="false" />
         <activity
-            android:name=".UserActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".ProductDetailActivity"
@@ -41,7 +41,7 @@
             android:name=".ProductActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".UserActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

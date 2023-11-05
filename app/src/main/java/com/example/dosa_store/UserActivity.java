@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dosa_store.adapter.UserAdapter;
@@ -24,7 +25,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class UserActivity extends AppCompatActivity implements View.OnClickListener{
+public class UserActivity extends AppCompatActivity{
     private RecyclerView rvUser;
     private UserAdapter userAdapter;
     private ArrayList<User> userList = new ArrayList<>();
@@ -37,6 +38,14 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_user);
 
         SSLHelper.handleSSLValidation();
+//        btnAddUser.findViewById(R.id.btnAddUser);
+////        btnAddUser.setOnClickListener(new View.OnClickListener() {
+////            @Override
+////            public void onClick(View v) {
+////                Intent intent = new Intent(UserActivity.this, AddUserActivity.class);
+////                startActivity(intent);
+////            }
+////        });
         rvUser = findViewById(R.id.rvUser);
         rvUser.setLayoutManager(new LinearLayoutManager(this));
         userAdapter = new UserAdapter(userList);
@@ -67,15 +76,6 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    @Override
-    public void onClick(View v) {
-        btnAddUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                        Intent intent = new Intent(UserActivity.this, AddUserActivity.class);
-                        startActivity(intent);
-            }
-        });
-    }
+
 }
