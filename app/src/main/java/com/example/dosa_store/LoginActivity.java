@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dosa_store.model.Login;
@@ -31,6 +33,15 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
         SSLHelper.handleSSLValidation();
+
+        TextView tvRegister = findViewById(R.id.tvRegister);
+        tvRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, AddUserActivity.class);
+                startActivity(intent);
+            }
+        });
         OkHttpClient client = SSLSocketFactoryHelper.getUnsafeOkHttpClient().build();
 
         Button login=(Button) findViewById(R.id.cirLoginButton);

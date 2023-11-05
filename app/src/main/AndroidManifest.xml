@@ -35,13 +35,13 @@
             android:name=".UserInformationActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".AddUserActivity"
             android:exported="false" />
         <activity
             android:name=".ProductActivity"
             android:exported="false" />
         <activity
-            android:name=".AddUserActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
