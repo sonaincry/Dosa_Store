@@ -4,12 +4,14 @@ import android.content.Intent;
 
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ListView;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.dosa_store.adapter.ProductAdapter;
+import com.example.dosa_store.adapter.ProductRecyclerViewAdapter;
 import com.example.dosa_store.model.Product;
 import com.example.dosa_store.repository.ProductRepository;
 import com.example.dosa_store.service.ProductService;
@@ -22,11 +24,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-
+    ArrayList<Product> models;
+    ProductRecyclerViewAdapter adapter;
+    RecyclerView lv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product);
+        //setContentView(R.layout.activity_product);
+        setContentView(R.layout.activity_productrv);
         SSLHelper.handleSSLValidation();
         OkHttpClient client = SSLSocketFactoryHelper.getUnsafeOkHttpClient().build();
         ProductService productService= ProductRepository.getService(client);
@@ -34,26 +39,33 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<ArrayList<Product>>() {
             @Override
             public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
-//
-                ArrayList<Product> models= response.body();
-                if(models!=null){
-                    ProductAdapter adapter=new ProductAdapter(models);
-                    ListView lv=findViewById(R.id.lv);
-                    lv.setAdapter(adapter);
-                    lv.setOnItemClickListener(((parent, view, position, id) -> {
-                        Intent intent=new Intent(MainActivity.this, ProductDetailActivity.class);
-                        intent.putExtra("id",models.get(position).getId());
-                        intent.putExtra("name",models.get(position).getName());
-                        intent.putExtra("image",models.get(position).getImgUrl());
-                        intent.putExtra("description",models.get(position).getDescription());
-                        intent.putExtra("price",models.get(position).getPrice());
-
-                        startActivity(intent);
-                    }));
-                    Toast.makeText(MainActivity.this,response.message(), Toast.LENGTH_LONG).show();
-                }else{
-                    Toast.makeText(MainActivity.this, response.message(), Toast.LENGTH_SHORT).show();
-                }
+                models= response.body();
+                adapter=new ProductRecyclerViewAdapter(models);
+                lv=findViewById(R.id.recyclerView);
+                lv.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                lv.setAdapter(adapter);
+                ((Button) findViewById(R.id.btnSearch)).setOnClickListener(v->{
+                    EditText search=findViewById(R.id.textSearch);
+                    if(search.getText()==null|| search.getText().toString().isEmpty()){
+                        models= response.body();
+                        adapter=new ProductRecyclerViewAdapter(models);
+                        lv.setAdapter(adapter);
+                    }else{
+                        String searchTxt=search.getText().toString();
+                        ArrayList<Product> searchList=new ArrayList<>();
+                        if(models==null||models.isEmpty()){
+                            models=response.body();
+                        }
+                        for(Product pro:models){
+                            if(pro.getName().toLowerCase().contains(searchTxt.toLowerCase())){
+                                searchList.add(pro);
+                            }
+                        }
+                        models=searchList;
+                        adapter=new ProductRecyclerViewAdapter(models);
+                        lv.setAdapter(adapter);
+                    }
+                });
             }
             @Override
             public void onFailure(Call<ArrayList<Product>> call, Throwable t) {
@@ -65,5 +77,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent=new Intent(MainActivity.this,CartActivity.class);
             startActivity(intent);
         });
+
     }
 }

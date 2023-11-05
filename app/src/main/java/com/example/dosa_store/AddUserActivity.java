@@ -2,11 +2,13 @@ package com.example.dosa_store;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dosa_store.model.User;
@@ -21,6 +23,7 @@ import retrofit2.Response;
 public class AddUserActivity extends AppCompatActivity implements View.OnClickListener{
 
     UserService userService;
+    TextView tvLogin;
     EditText etName, etPassword, etPhone, etAddress, etDisplayName, etEmail;
     Button btnRegister;
     @Override
@@ -34,6 +37,13 @@ public class AddUserActivity extends AppCompatActivity implements View.OnClickLi
         etAddress = findViewById(R.id.etAddress);
         etDisplayName = findViewById(R.id.etDisplayName);
         etEmail = findViewById(R.id.etEmail);
+//        tvLogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(AddUserActivity.this, LoginActivity.class);
+//                startActivity(intent);
+//            }
+//        });
         btnRegister = findViewById(R.id.btnRegister);
         btnRegister.setOnClickListener(this);
         OkHttpClient client = SSLSocketFactoryHelper.getUnsafeOkHttpClient().build();
