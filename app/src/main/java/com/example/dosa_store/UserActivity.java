@@ -25,7 +25,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class UserActivity extends AppCompatActivity{
+public class UserActivity extends AppCompatActivity implements View.OnClickListener{
     private RecyclerView rvUser;
     private UserAdapter userAdapter;
     private ArrayList<User> userList = new ArrayList<>();
@@ -38,6 +38,8 @@ public class UserActivity extends AppCompatActivity{
         setContentView(R.layout.activity_user);
 
         SSLHelper.handleSSLValidation();
+        btnAddUser = findViewById(R.id.btnAddUser);
+        btnAddUser.setOnClickListener(this);
 //        btnAddUser.findViewById(R.id.btnAddUser);
 ////        btnAddUser.setOnClickListener(new View.OnClickListener() {
 ////            @Override
@@ -76,6 +78,14 @@ public class UserActivity extends AppCompatActivity{
         });
     }
 
-
-
+    public void AddUser(){
+        Intent intent = new Intent(UserActivity.this, AddUserActivity.class);
+        startActivity(intent);
+    }
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.btnAddUser){
+            AddUser();
+        }
+    }
 }

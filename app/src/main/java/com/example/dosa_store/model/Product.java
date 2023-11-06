@@ -1,8 +1,6 @@
 package com.example.dosa_store.model;
 
 
-import org.threeten.bp.LocalDateTime;
-
 public class Product {
     private int id;
     private String name;
@@ -12,7 +10,7 @@ public class Product {
     private String imgUrl;
     //  private LocalDateTime createdDate;
 //
-    public Product(int id, String name, float price, int quantity, String description, String imgUrl) {
+    public Product() {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -74,6 +72,7 @@ public class Product {
     public String getImgUrl() {
         return imgUrl;
     }
+
 
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
