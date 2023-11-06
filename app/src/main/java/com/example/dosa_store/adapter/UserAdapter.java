@@ -1,5 +1,6 @@
 package com.example.dosa_store.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.dosa_store.OrderActivity;
+import com.example.dosa_store.ProductDetailActivity;
 import com.example.dosa_store.R;
 import com.example.dosa_store.model.User;
 
@@ -34,6 +37,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         holder.tvEmail.setText(user.getEmail());
         holder.tvPhone.setText(user.getPhone());
         holder.tvAddress.setText(user.getAddress());
+        holder.tvId.setText(Integer.toString(user.getId()));
+        holder.itemView.setOnClickListener(v->{
+            Intent intent=new Intent(holder.itemView.getContext(), OrderActivity.class);
+            intent.putExtra("userId",user.getId());
+            holder.itemView.getContext().startActivity(intent);
+        });
+
     }
 
     @Override
@@ -48,14 +58,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         TextView tvPhone;
         TextView tvAddress;
 
-
+        TextView tvId;
         public ViewHolder(View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvName);
             tvEmail = itemView.findViewById(R.id.tvEmail);
             tvPhone = itemView.findViewById(R.id.tvPhone);
             tvAddress = itemView.findViewById(R.id.tvAddress);
-
+            tvId=itemView.findViewById(R.id.tvId);
         }
     }
 }
