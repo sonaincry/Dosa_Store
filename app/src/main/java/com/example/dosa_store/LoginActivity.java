@@ -65,7 +65,8 @@ public class LoginActivity extends AppCompatActivity {
 
                         }
                         else{
-                            Toast.makeText(LoginActivity.this, "You're not a admin", Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(LoginActivity.this,ProductManagement.class);
+                            startActivity(intent);
                         }
                     }else{
                         Toast.makeText(LoginActivity.this, response.message()
