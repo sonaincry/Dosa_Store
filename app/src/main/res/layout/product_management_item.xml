@@ -5,17 +5,18 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp">
+
     <TextView
         android:id="@+id/item_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"/>
+
     <ImageView
         android:id="@+id/item_image"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:scaleType="centerCrop"
-        />
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/item_title"
@@ -24,35 +25,50 @@
         android:text="Item Title"
         android:textSize="18sp"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/item_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Item Price}"
-        android:textSize="14sp" />
+        android:text="Item Price"
+        android:textSize="14sp"
+        android:textColor="@android:color/holo_orange_light"/>
+
     <TextView
         android:id="@+id/item_quantity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Item Quantity"
         android:textSize="14sp" />
+
     <TextView
         android:id="@+id/item_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Item Description"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:textColor="@android:color/holo_blue_light"/>
 
-    <ImageView
-        android:id="@+id/ivDelete"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/delete" />
+        android:orientation="horizontal"
+        android:gravity="end">
 
-    <ImageView
-        android:id="@+id/ivUpdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/edit" />
+        <ImageView
+            android:id="@+id/ivDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/delete"
+            style="@style/RedImageView" />
+
+        <ImageView
+            android:id="@+id/ivUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/edit"
+            style="@style/BlueImageView" />
+
+    </LinearLayout>
 
 </LinearLayout>
