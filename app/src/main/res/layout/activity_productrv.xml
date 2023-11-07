@@ -25,13 +25,13 @@
                   android:padding="8dp" />
 
               <TextView
-                  android:id="@+id/linkTextView"
+                  android:id="@+id/tvUserInfo"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:layout_alignParentTop="true"
                   android:layout_alignParentEnd="true"
                   android:layout_marginTop="13dp"
-                  android:layout_marginEnd="6dp"
+                  android:layout_marginEnd="5dp"
                   android:clickable="true"
                   android:drawableLeft="@drawable/user_profile"
                   android:onClick="onLinkClick"
@@ -122,11 +122,6 @@
               app:layout_constraintTop_toTopOf="parent"
               app:layout_constraintVertical_bias="0.0" />
 
-          <Button
-              android:id="@+id/btnCart"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:text="Go to cart" />
 
 
       </LinearLayout>

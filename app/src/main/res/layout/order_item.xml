@@ -6,9 +6,23 @@
     android:orientation="vertical"
     android:padding="8dp">
 
-    <!-- New Row on Top -->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvOrderId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OrderId"
+        android:layout_weight="1"
+        />
+    <TextView
+        android:id="@+id/tvOrderDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="OrderDate" />
+    <TextView
+        android:id="@+id/tvTotal"
+        android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 

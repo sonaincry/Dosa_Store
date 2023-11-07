@@ -2,9 +2,11 @@ package com.example.dosa_store;
 
 import android.content.Intent;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_product);
         setContentView(R.layout.activity_productrv);
+
+        SharedPreferences settings = getSharedPreferences("PREFS_NAME", 0);
+        int userId = settings.getInt("userId", -1);
+
         SSLHelper.handleSSLValidation();
         OkHttpClient client = SSLSocketFactoryHelper.getUnsafeOkHttpClient().build();
         ProductService productService= ProductRepository.getService(client);
@@ -75,6 +81,12 @@ public class MainActivity extends AppCompatActivity {
         Button goToCart=(Button) findViewById(R.id.btnCart);
         goToCart.setOnClickListener(v -> {
             Intent intent=new Intent(MainActivity.this,CartActivity.class);
+            startActivity(intent);
+        });
+        TextView tvUserInfo = (TextView) findViewById(R.id.tvUserInfo);
+        tvUserInfo.setOnClickListener(v -> {
+            Intent intent=new Intent(MainActivity.this,UserInformationActivity.class);
+            intent.putExtra("userId", userId);
             startActivity(intent);
         });
 
